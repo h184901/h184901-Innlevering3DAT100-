@@ -10,6 +10,19 @@ public class SkrivBlogg {
 
 	public static boolean skriv(Blogg samling, String mappe, String filnavn) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		try {
+			FileWriter writer = new FileWriter(mappe + filnavn);
+			
+			writer.write(samling.toString());
+			writer.close();
+			return true; 
+			
+		}
+	catch(IOException e) {
+		System.out.println("Feil ved skriving til fil: " + e.getMessage());
 	}
+		return false;
+	}
+
 }
+
